@@ -17,5 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+#複数アクション
+// Route::get("hello", "HelloController@index");
+// Route::get("hello/other", "HelloController@other");
+
+#シングルアクション
+// Route::get("hello", "HelloController");
+
+#リクエストとレスポンせ
+// Route::get("hello", "HelloController@index");
+
+#テンプレート
 Route::get("hello", "HelloController@index");
-Route::get("hello/other", "HelloController@other");
+Route::post("hello", "HelloController@post");
