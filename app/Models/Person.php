@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
   use HasFactory;
-  
+
+  public function boards() {
+   return $this->hasMany("App\Models\Board");
+  }
+
   protected $guarded = array("id");
-  
+
   public static $rules = array(
    "name"=>"required",
    "mail"=>"email",
@@ -21,7 +25,7 @@ class Person extends Model
    {
     return $this->id . ":" . $this->name . "(" . $this->age .")";
    }
-   
+
   public function scopeNameEqual($query, $str)
   {
    return $query->where("name", $str);
@@ -34,5 +38,5 @@ class Person extends Model
   {
    return $query->where("age", "<=", $n);
   }
-  
+
 }
