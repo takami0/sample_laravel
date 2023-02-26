@@ -8,13 +8,19 @@
   @endsection
 
   @section("content")
+    @if (count($errors) > 0)
+    <div>
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
     <form action="/board/add" method="post">
       <table>
         @csrf
-        <tr>
-          <th>person id:</th>
-          <td><input type="number" name="person_id"></td>
-        </tr>
+        <input type="hidden" name="user_id" value="{{$user->id}}">
         <tr>
           <th>title:</th>
           <td><input type="text" name="title"></td>
@@ -25,7 +31,7 @@
         </tr>
         <tr>
           <th></th>
-          <td><input type="submit" value="send"></td>
+          <td><input type="submit" value="投稿"></td>
         </tr>
       </table>
     </form>

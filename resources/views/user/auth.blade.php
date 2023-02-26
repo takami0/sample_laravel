@@ -1,7 +1,5 @@
 @extends("layouts.helloapp")
 
-@section("title", "ユーザー認証")
-
 @section("menubar")
   @parent
   ユーザー認証ページ
@@ -9,7 +7,7 @@
 
 @section("content")
   <p>{{$msg}}</p>
-  <form action="/person/auth" method="post">
+  <form action="/user/auth" method="post">
     <table>
       @csrf
       <tr>
@@ -26,10 +24,10 @@
       </tr>
     </table>
   </form>
-  未登録の方は<a href="/register">こちら</a>
+  未登録の方は<a href="user/register">こちら</a>
 
 @endsection
 
 @section("footer")
-  copyright 2020 tuyano.
+  ヘッダー
 @endsection

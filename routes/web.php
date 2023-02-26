@@ -13,37 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-#テンプレート
-// Route::get("hello", "HelloController@index");
-// Route::post("hello", "HelloController@post");
+Route::get("/", "UserController@index")
+ ->middleware("auth");
+Route::get("user/auth", "UserController@getAuth")
+    ->name("login");
+Route::post("user/auth", "UserController@postAuth");
+Route::get("user/logout", "UserController@delAuth");
+Route::get("user/register", "UserController@getRegister")
+    ->name("register");
+Route::post("user/register", "UserController@postRegister");
 
-Route::get("person", "PersonController@index")
-  ->middleware("auth");
 
-#ログイン
-Route::get("person/auth", "PersonController@getAuth");
-Route::post("person/auth", "PersonController@postAuth");
-Route::get("person/logout", "PersonController@delAuth");
+Route::get("user/find", "UserController@find");
+Route::post("user/find", "UserController@search");
+
+Route::get("/board", "BoardController@index");
+Route::get("board/add", "BoardController@add");
+Route::post("board/add", "BoardController@create");
+Route::get("board/{id}/edit", "BoardController@edit");
+Route::post("board/edit", "BoardController@update");
+Route::get("board/{id}/delete", "BoardController@delete");
+Route::post("board/del", "BoardController@remove");
+
+
+
+
 
 Route::get("person/find", "PersonController@find");
 Route::post("person/find", "PersonController@search");
-#インスタンスの新規作成
-Route::get("person/add", "PersonController@add");
-Route::post("person/add", "PersonController@create");
-#インスタンスの更新
-Route::get("person/edit", "PersonController@edit");
-Route::post("person/edit", "PersonController@update");
-#インスタンスの削除
-Route::get("person/del", "PersonController@delete");
-Route::post("person/del", "PersonController@remove");
 
-Route::get("board", "BoardController@index");
-Route::get("board/add", "BoardController@add");
-Route::post("board/add", "BoardController@create");
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

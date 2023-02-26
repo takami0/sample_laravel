@@ -12,6 +12,17 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function boards() {
+     return $this->hasMany("App\Models\Board");
+    }
+    protected $guarded = array("id");
+
+    public static $rules = array(
+     "name"=>"required",
+     "email"=>"email",
+     "password"=>"required"
+    );
+
     /**
      * The attributes that are mass assignable.
      *

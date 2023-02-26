@@ -1,6 +1,6 @@
 @extends("layouts.helloapp")
 
-@section("title", "Person.Delete")
+@section("title", "Board.delete")
 
   @section("menubar")
     @parent
@@ -8,30 +8,26 @@
   @endsection
 
   @section("content")
-  <form action="/person/del" method="post">
+  <form action="/board/del" method="post">
     <table>
       @csrf
       <input type="hidden" name="id" value="{{$form->id}}">
       <tr>
-        <th> name: </th>
-        <td>{{ $form->name }}</td>
+        <th> title: </th>
+        <td>{{ $form->title }}</td>
       </tr>
       <tr>
-        <th> mail: </th>
-        <td>{{ $form->mail }}</td>
-      </tr>
-      <tr>
-        <th> age: </th>
-        <td>{{ $form->age }}</td>
+        <th> message: </th>
+        <td>{{ $form->message }}</td>
       </tr>
       <tr>
         <th></th>
-        <td> <input type="submit" value="send"> </td>
+        <td> <input type="submit" value="削除"> </td>
       </tr>
     </table>
   </form>
   @endsection
 
   @section("footer")
-    copyright 2020 tuyano.
+    ヘッダー
   @endsection

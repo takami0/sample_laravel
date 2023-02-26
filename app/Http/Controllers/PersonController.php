@@ -31,13 +31,13 @@ class PersonController extends Controller
     return redirect("person/auth");
   }
 
+  #INDEX
   public function index(Request $request)
   {
     $user = Auth::user();
     $items = Person::all();
     return view("person.index", ["items" => $items]);
   }
-
   #インスタンスの新規作成
   public function add(Request $request) {
     return view("person.add");

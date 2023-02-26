@@ -23,9 +23,13 @@
     <h1>@yield("title")</h1>
     @section("menubar")
     <h2 class="menutitle">
-      ※メニュー
       @if(Auth::check())
-        <li><a href="person/logout">ログアウト</a></li>
+        ようこそ！{{$user->name}}さん。
+        <li><a href="user">投稿者（一覧）</a></li>
+        <li><a href="board">投稿（一覧）</a></li>
+        <li><a href="user/logout">ログアウト</a></li>
+      @else
+        ※ログインしていません。<a href="user/auth">こちら</a>からログインください。
       @endif
     </h2>
     <ul>
