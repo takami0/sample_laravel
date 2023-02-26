@@ -22,3 +22,14 @@ Route::get("hello", "HelloController@index");
 Route::post("hello", "HelloController@post");
 
 Route::get("person", "PersonController@index");
+Route::get("person/find", "PersonController@find");
+Route::post("person/find", "PersonController@search");
+#インスタンスの新規作成
+Route::get("person/add", "PersonController@add");
+Route::post("person/add", "PersonController@create");
+#インスタンスの更新
+Route::get("person/edit", "PersonController@edit");
+Route::post("person/edit", "PersonController@update");
+#インスタンスの削除
+Route::get("person/del", "PersonController@delete");
+Route::post("person/del", "PersonController@remove");
