@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get("/", "UserController@index")
- ->middleware("auth");
+ ->middleware("auth")->name("/");
 Route::get("user/auth", "UserController@getAuth")
     ->name("login");
 Route::post("user/auth", "UserController@postAuth");

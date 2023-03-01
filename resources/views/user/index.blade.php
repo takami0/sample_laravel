@@ -13,9 +13,9 @@
     <tr>
       <th>名前</th>
     </tr>
-    @foreach ($users as $user)
+    @foreach ($users as $each)
     <tr>
-      <td>{{$user->name}}</td>
+      <td>{{$each->name}}</td>
     </tr>
     @endforeach
   </table>

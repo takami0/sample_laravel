@@ -19,7 +19,6 @@ class UserController extends Controller
     $user->fill($form)->save();
     return redirect("/");
   }
-
   #ユーザ認証（GET）
   public function getAuth(Request $request) {
     $msg = "ログインしてください。";
@@ -47,7 +46,7 @@ class UserController extends Controller
   public function index(Request $request) {
     $user = Auth::user();
     $users = User::all();
-    return view("user.index", ["users" => $users]);
+    return view("user.index", ["user" => $user, "users" => $users]);
   }
   public function find(Request $request) {
     $user = Auth::user();

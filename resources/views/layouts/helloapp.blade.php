@@ -25,8 +25,8 @@
     <h2 class="menutitle">
       @if(Auth::check())
         ようこそ！{{$user->name}}さん。
-        <li><a href="user">投稿者（一覧）</a></li>
-        <li><a href="board">投稿（一覧）</a></li>
+        <li><a href="/">投稿者（一覧）</a></li>
+        <li><a href="/board">投稿（一覧）</a></li>
         <li><a href="user/logout">ログアウト</a></li>
       @else
         ※ログインしていません。<a href="user/auth">こちら</a>からログインください。

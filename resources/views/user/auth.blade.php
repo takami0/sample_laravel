@@ -24,7 +24,7 @@
       </tr>
     </table>
   </form>
-  未登録の方は<a href="user/register">こちら</a>
+  未登録の方は<a href="register">こちら</a>
 
 @endsection
 
